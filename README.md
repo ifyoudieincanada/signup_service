@@ -1,7 +1,18 @@
 # SignupService
 
+The idea behind SignupService is it will be able to generate a series of unique
+signup codes that can be used to create accounts on this website. This
+application doesn't handle user creation, it only allows validation of users via
+a preshared key.
+
+Tables:
+  * Keys
+      The Keys table is the only table here. It's columns are `string:key` and
+      `bool:claimed`.
+
 To start your Phoenix app:
 
+  * Run `setup.sh` to create the required `postgresql` users
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
   * Start Phoenix endpoint with `mix phoenix.server`
