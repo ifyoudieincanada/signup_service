@@ -6,9 +6,27 @@ application doesn't handle user creation, it only allows validation of users via
 a preshared key.
 
 Tables:
+
   * Keys
       The Keys table is the only table here. It's columns are `string:key` and
       `bool:claimed`.
+
+Endpoints:
+
+  * /verify
+      The URL to verify that a given key is unused.
+
+      The idea is a (registered) frontend app will call
+      `Signup.verify(key)`
+      followed by
+      `User.create(user_info)`
+      in the event that the verification was a success. We do not want to expose
+      our UserService to the outside world, meaning these should only be
+      accessible on-network.
+
+  * /generate
+      The URL to generate more unique keys. This should only be accessible to
+      Users verified with `admin` permissions.
 
 To start your Phoenix app:
 
