@@ -5,6 +5,8 @@ defmodule SignupService.Key do
     field :key, :string
     field :claimed, :boolean, default: false
 
+    belongs_to :user, SignupService.User
+
     timestamps()
   end
 
