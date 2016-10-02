@@ -19,7 +19,7 @@ defmodule SignupService.Mixfile do
   def application do
     [mod: {SignupService, []},
      applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :event_client]]
   end
 
   # Specifies which paths to compile per environment.
@@ -36,7 +36,8 @@ defmodule SignupService.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:user_client, git: "https://github.com/ifyoudieincanada/user_client.git"}]
+     {:user_client, git: "https://github.com/ifyoudieincanada/user_client.git"},
+     {:event_client, git: "https://github.com/ifyoudieincanada/event_client.git"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

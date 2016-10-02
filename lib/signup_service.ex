@@ -20,6 +20,8 @@ defmodule SignupService do
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: SignupService.Supervisor]
     Supervisor.start_link(children, opts)
+
+    #    SignupService.Subscriber.subscribe
   end
 
   # Tell Phoenix to update the endpoint configuration

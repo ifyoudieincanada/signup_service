@@ -5,7 +5,11 @@ defmodule SignupService.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", SignupService do
+  scope "/", SignupService do
     pipe_through :api
+
+    post "/verify", KeyController, :verify
+    post "/generate", KeyController, :generate
+    post "/events", KeyController, :events
   end
 end

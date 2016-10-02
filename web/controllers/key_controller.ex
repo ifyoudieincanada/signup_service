@@ -41,6 +41,19 @@ defmodule SignupService.KeyController do
     end
   end
 
+  def events(conn, %{"event" => %{"event_name" => "user.create", "payload" => %{"user_id" => user_id}}}) do
+    keys = Enum.map(1..5, fn _ ->
+      generate_key
+    end)
+
+    %SignupService.User{}
+    |> SignupService.User.changeset(user_id: user_id)
+    |> Ecto.Changeset.put_assoc(:keys, keys)
+    |> Repo.insert!
+
+    send_resp(conn, :no_content, "")
+  end
+
   defp generate_key do
     key = do_generate_key
 
